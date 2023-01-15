@@ -1,7 +1,10 @@
 // Importing packages
 import express from "express";
-import './db/conn.js' //connect to database
+import './db/conn.js'; //connect to database
+import { config } from 'dotenv';
+
 //Defining essential variables
+config({ path: './config.env' });
 const app = express();
 const port = process.env.PORT || 8000;
 

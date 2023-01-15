@@ -1,2 +1,7 @@
 node_modules
 git.sh
+config.env
+.env*
+.flaskenv*
+!.env.project
+.env.vault
