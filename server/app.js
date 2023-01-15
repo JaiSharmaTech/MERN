@@ -1,15 +1,21 @@
 // Importing packages
 import express from "express";
-
+import './db/conn.js' //connect to database
 //Defining essential variables
 const app = express();
 const port = process.env.PORT || 8000;
+
+//Middleware
+const middleware = (res, req, next) => {
+    console.log("Hello My Middleware");
+    next();
+}
 
 // User Routes
 app.get("/", (req, res) => {
     res.send("Hello World from the server");
 })
-app.get("/about", (req, res) => {
+app.get("/about", middleware, (req, res) => {
     res.send("Hello About World from server")
 })
 app.get("/contact", (req, res) => {
