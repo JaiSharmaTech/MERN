@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-mongoose.connect(process.env.DB || "mongodb://127.0.0.1:27017/", {
+mongoose.connect(process.env.DB || "mongodb://127.0.0.1:27017/mern", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useCreateIndex: true,
