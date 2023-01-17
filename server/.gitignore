@@ -1,7 +1,8 @@
 node_modules
 git.sh
 config.env
-.env*
+.env
+routers/.env
 .flaskenv*
 !.env.project
 .env.vault

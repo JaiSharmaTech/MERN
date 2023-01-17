@@ -1,15 +1,12 @@
+import { config } from "dotenv"
+config() //set environment variables
 // Importing packages
 import express from "express";
-import { config } from 'dotenv';
-import './db/conn.js'; //connect to database
-import router from './routers/auth.js'
-
-
-//Importing DB Models
-import USER from './models/User.js'
+import connect from './db/conn.js';
 
 //Defining essential variables
-config({ path: './config.env' });
+connect(process.env.DB) //connect to database
+import router from './routers/auth.js'
 const app = express();
 const port = process.env.PORT || 8000;
 
