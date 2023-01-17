@@ -1,5 +1,6 @@
 import { Router } from "express";
 import USER from "../models/User.js";
+import bcrypt from "bcryptjs"
 
 const router = Router();
 /* Register the user */
@@ -28,8 +29,9 @@ router.post("/login", (req, res) => {
         return res.status(422).json({error:"Please enter out all the fields"})
     }
     USER.find({email})
-    .then(user=>{
-        if(user.length==1 && user[0].password == password){
+    .then(async(user)=>{
+        const isPasswordValid = await bcrypt.compare(password,user[0].password);
+        if(user.length==1 && isPasswordValid){
             return res.status(201).json({msg:"You were logged in successfully"})
         }
         res.status(400).json({error:"Please enter valid credentials"})
