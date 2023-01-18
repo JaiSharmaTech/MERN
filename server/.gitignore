@@ -4,5 +4,6 @@ config.env
 .env
 models/.env
 .flaskenv*
+.vscode
 !.env.project
 .env.vault
